@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void getInput() {
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         speed = Input.GetKey(KeyCode.LeftShift) ? 2.0f : 1.0f;
 
         return;
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void move() {
         Vector3 translation = new Vector3(movementDirection.x, movementDirection.y, 0.0f) * speed * Time.deltaTime * TimeManager.getTimeFlow();
+        
         transform.position += translation;
 
         return;
