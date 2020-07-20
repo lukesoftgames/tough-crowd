@@ -4,6 +4,8 @@
 
 Get someone to add you as a memeber of the repository before getting set up!
 
+We use Unity 2019.4.4f1
+
 ### Windows 
 
 1. Download Github for Windows
