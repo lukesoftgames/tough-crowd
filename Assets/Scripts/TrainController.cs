@@ -20,7 +20,7 @@ public class TrainController : MonoBehaviour
             {
                 AstarPath.active.Scan();
                 context.trainArrived = true;
-                LeanTween.moveY(gameObject, -10f, 2f)
+                LeanTween.moveY(gameObject, -30f, 2f)
                    .setEase(LeanTweenType.easeInQuad)
                    .setDelay(5f)
                    .setOnComplete(() =>
