@@ -12,8 +12,11 @@ public class PlayerInteract : MonoBehaviour {
     }
 
     private void Update() {
-        getInput();
         interact();
+    }
+    
+    public void setTryInteract(bool interactInput) {
+        tryInteract = interactInput;
     }
 
     private void interact() {
@@ -27,11 +30,12 @@ public class PlayerInteract : MonoBehaviour {
                 break;
             }
         }
+        tryInteract = false;
     }
 
-    private void getInput() {
-        tryInteract = Input.GetKeyDown(KeyCode.E);
+    //private void getInput() {
+    //    tryInteract = Input.GetKeyDown(KeyCode.E);
 
-        return;
-    }
+    //    return;
+    //}
 }
