@@ -6,18 +6,11 @@ public abstract class CompositeNode : BehaviourNode
 {
     [Output(dynamicPortList = true)] public List<BehaviourNode> children = new List<BehaviourNode>();
 
-    public override void OnCreateConnection(XNode.NodePort from, XNode.NodePort to)
-    {
 
-        base.OnCreateConnection(from, to);
-        if (from.node == this)
-        {
-            if (to.fieldName == "parent")
-            {
-                int idx = int.Parse(from.fieldName.Substring(from.fieldName.Length - 1));
-                children[idx] = (BehaviourNode)to.node;
-            }
-        }
+    public BehaviourNode GetChild(int idx)
+    {
+        string key = "children " + idx;
+        return (BehaviourNode)GetOutputPort(key).GetConnection(0).node;
     }
 
     public void AddChild(BehaviourNode node)

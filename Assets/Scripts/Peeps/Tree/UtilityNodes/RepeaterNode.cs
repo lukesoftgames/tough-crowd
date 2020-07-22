@@ -8,7 +8,7 @@ public class RepeaterNode : DecoratorNode
     
     public override NodeStatus OnBehave(Context context, GameObject peep)
     {
-        NodeStatus childStatus = child.Behave(context, peep);
+        NodeStatus childStatus = GetChild().Behave(context, peep);
         if(childStatus == NodeStatus.SUCCESS) {
             Reset();
             return NodeStatus.RUNNING;
@@ -18,9 +18,9 @@ public class RepeaterNode : DecoratorNode
 
     public override void OnReset()
     {
-        if (child != null)
+        if (GetChild() != null)
         {
-            child.Reset();
+            GetChild().Reset();
         }
     }
 }

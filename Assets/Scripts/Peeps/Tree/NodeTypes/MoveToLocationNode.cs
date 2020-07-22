@@ -8,16 +8,17 @@ public abstract class MoveToLocationNode : BehaviourNode
 
     protected Vector2 destination;
     private Seeker seeker;
-    Path path;
+    protected Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
+    protected bool reachedEndOfPath = false;
     protected Rigidbody2D rb;
     public float changeWaypointTolerance = 0.5f;
     public float speed = 1f;
 
     public override void OnReset()
     {
-        startFlag = true; 
+        startFlag = true;
+        path = null;
     }
 
     void OnPathComplete(Path p)

@@ -5,21 +5,13 @@ using XNode;
 
 public abstract class DecoratorNode : BehaviourNode
 {
-    [Output] public BehaviourNode child;
+    [Output] public Node child;
 
-
-    public override void OnCreateConnection(NodePort from, NodePort to)
+    public BehaviourNode GetChild()
     {
-        
-        base.OnCreateConnection(from, to);
-        if (from.node == this)
-        {
-            if (to.fieldName == "parent")
-            {
-                child = (BehaviourNode) to.node;    
-            }
-        }
+        return (BehaviourNode)GetOutputPort("child").GetConnection(0).node;
     }
+
     public virtual void SetChild(BehaviourNode node)
     {
         if (child != null)

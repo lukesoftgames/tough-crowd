@@ -15,18 +15,17 @@ public abstract class WaitUntilNode : BehaviourNode
     public override void OnReset()
     {
         conditionMet = false;
+        GetConditionNode().Reset();
+        GetWaitNode().Reset();
     }
 
-    public override void OnCreateConnection(NodePort from, NodePort to)
+    protected BehaviourNode GetWaitNode()
     {
-        base.OnCreateConnection(from, to);
-        if (from.fieldName == "waitNode")
-        {
-            waitNode = (BehaviourNode)to.node;
-        } else if (from.fieldName == "conditionNode")
-        {
-            conditionNode = (BehaviourNode)to.node;
-        }
+        return (BehaviourNode)GetOutputPort("waitNode").GetConnection(0).node;
+    }
+    protected BehaviourNode GetConditionNode()
+    {
+        return (BehaviourNode)GetOutputPort("conditionNode").GetConnection(0).node;
     }
 
     public override NodeStatus OnBehave(Context context, GameObject peep)
@@ -35,16 +34,17 @@ public abstract class WaitUntilNode : BehaviourNode
         // doesn't disable after 
         if (conditionMet)
         {
-            return conditionNode.Behave(context, peep);
+            return GetConditionNode().Behave(context, peep);
         }
         conditionMet = WaitCondition(context);
         if (conditionMet)
         {
             conditionNode.Reset();
-            return conditionNode.Behave(context, peep);
+            return GetConditionNode().Behave(context, peep);
         }
         else
         {
+            GetWaitNode().Behave(context, peep);
             return NodeStatus.RUNNING;
         }
 

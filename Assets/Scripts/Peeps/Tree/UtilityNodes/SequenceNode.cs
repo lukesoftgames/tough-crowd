@@ -15,7 +15,7 @@ public class SequenceNode : CompositeNode
         {
             Debug.Log("Error in " + name + ": Current Node cannot be bigger than number of children");
         }
-        NodeStatus childStatus = children[currentNode].Behave(context, peep);
+        NodeStatus childStatus = GetChild(currentNode).Behave(context, peep);
         switch(childStatus)
         {
             case NodeStatus.SUCCESS:

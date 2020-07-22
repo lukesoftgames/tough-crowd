@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -17,4 +18,13 @@ public class BehaviourTree : XNode.NodeGraph
         Debug.LogError("No Entry Point specified for " + name);
         return null;
     }
+   
+       public void DisplayHashCodes()
+    {
+        foreach (XNode.Node n in nodes)
+        {
+            Debug.Log(n.name + n.GetHashCode());
+        }
+    }
+    
 }
