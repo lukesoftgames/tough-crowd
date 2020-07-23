@@ -9,6 +9,7 @@ public class PeepAI : MonoBehaviour
     public BehaviourTree behaviourTree;
     private BehaviourNode behaviourTreeRoot;
     private Context context = Context.GetInstance();
+    private Blackboard blackboard;
 
 
     void Start()
@@ -17,6 +18,7 @@ public class PeepAI : MonoBehaviour
         XNode.Node entry = ((BehaviourTree)behaviourTree.Copy()).FindEntryNode();
         behaviourTreeRoot = (BehaviourNode)entry.GetOutputPort("child").GetConnection(0).node;
         behaviourTreeRoot.Reset();
+        blackboard = new Blackboard();
     }
 
     void FixedUpdate()
