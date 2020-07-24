@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6262580367443875711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ea74b4e630c2546a81f97c0c576650, type: 3}
+  m_Name: Walk To Random Position
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 528.1277, y: -321.24405}
+  ports:
+    keys:
+    - parent
+    values:
+    - _fieldName: parent
+      _node: {fileID: -6262580367443875711}
+      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: runOnTrue
+        node: {fileID: 5248156952856235113}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  parent: {fileID: 0}
+  changeWaypointTolerance: 0.5
+  speed: 1
+  minSearchRadius: 2
+  maxSearchRadius: 5
+  attemptsToFindATarget: 10
 --- !u!114 &-5067428557082757356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +90,7 @@ MonoBehaviour:
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: parent
-        node: {fileID: 9101110311618667488}
+        node: {fileID: 5248156952856235113}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -73,7 +108,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   parent: {fileID: 0}
-  child: {fileID: 9101110311618667488}
+  child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,8 +124,10 @@ MonoBehaviour:
   nodes:
   - {fileID: -5067428557082757356}
   - {fileID: -1973543420928035088}
-  - {fileID: 9101110311618667488}
---- !u!114 &9101110311618667488
+  - {fileID: 5248156952856235113}
+  - {fileID: 3684266311520605693}
+  - {fileID: -6262580367443875711}
+--- !u!114 &3684266311520605693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,17 +136,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ea74b4e630c2546a81f97c0c576650, type: 3}
-  m_Name: Walk To Random Position
+  m_Script: {fileID: 11500000, guid: 5e7e35882176b734ab50130366118d59, type: 3}
+  m_Name: Follow Group Leader
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 72, y: -168}
+  position: {x: 424, y: -56}
   ports:
     keys:
     - parent
     values:
     - _fieldName: parent
-      _node: {fileID: 9101110311618667488}
+      _node: {fileID: 3684266311520605693}
+      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: runOnFalse
+        node: {fileID: 5248156952856235113}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  parent: {fileID: 0}
+  numberOfCollisionRays: 16
+  awarenessRadius: 2
+  speed: 1
+--- !u!114 &5248156952856235113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36fd7805e66d9e4881ca85cc0721ff1, type: 3}
+  m_Name: Switch
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 56, y: -264}
+  ports:
+    keys:
+    - runOnTrue
+    - runOnFalse
+    - parent
+    values:
+    - _fieldName: runOnTrue
+      _node: {fileID: 5248156952856235113}
+      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: -6262580367443875711}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: runOnFalse
+      _node: {fileID: 5248156952856235113}
+      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: 3684266311520605693}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: parent
+      _node: {fileID: 5248156952856235113}
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: child
@@ -120,8 +216,6 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   parent: {fileID: 0}
-  changeWaypointTolerance: 0.5
-  speed: 1
-  minSearchRadius: 2
-  maxSearchRadius: 5
-  attemptsToFindATarget: 10
+  key: isGroupLeader
+  runOnTrue: {fileID: 0}
+  runOnFalse: {fileID: 0}

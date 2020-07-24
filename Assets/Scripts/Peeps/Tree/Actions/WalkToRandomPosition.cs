@@ -25,15 +25,11 @@ public class WalkToRandomPosition : MoveToLocationNode
                 CalculatePath(peep);
                 i++;
             }
-            if (path == null)
-            {
-                Debug.Log(GetHashCode() + "cannot find path");
-            }
             return NodeStatus.FAILURE;
         }
         else
         {
-            
+
             return PathFind(context, peep);
         }
     }

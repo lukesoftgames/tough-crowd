@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8251310746134929870}
   - component: {fileID: 8251310746134929864}
   - component: {fileID: 8251310746134929868}
-  - component: {fileID: 2555669469847864227}
+  - component: {fileID: 2913479143059324644}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -264,7 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b12b30e9ac93fd409e5e8e00bf0ed90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 81bec0231f210fb4b99d6a15c29da6ed, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 569037de1e1fe094dbfc0ee47ae1f8d2, type: 2}
+  blackboard: {fileID: 2913479143059324644}
 --- !u!50 &8251310746134929868
 Rigidbody2D:
   serializedVersion: 4
@@ -286,7 +287,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2555669469847864227
+--- !u!114 &2913479143059324644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

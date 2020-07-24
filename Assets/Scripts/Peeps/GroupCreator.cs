@@ -6,18 +6,53 @@ public class GroupCreator : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private int groupSizeLimit = 4;
-    [SerializeField] GameObject peep;
+    [SerializeField] GameObject peepTemplate;
+    private GameObject groupLeader; 
     int numberInGroup;
 
     void Awake()
     {
         numberInGroup = Random.Range(1, groupSizeLimit);
     }
+
+    void MakeGroup(int size)
+    {
+        List<PeepAI> aiInGroup = new List<PeepAI>();
+        List<Rigidbody2D> rbInGroup = new List<Rigidbody2D>();
+        Vector2 spawnPos = new Vector2(Random.Range(0f, 18f), Random.Range(14f, -14f));
+        // Check if spawn is clear
+
+        Collider2D collider = Physics2D.OverlapCircle(spawnPos, 0f);
+        if (collider != null)
+        {
+            // The spawn location is inside a collider
+            return;
+        }
+
+        groupLeader = Instantiate(peepTemplate, spawnPos, Quaternion.identity);
+        PeepAI leaderAi = groupLeader.GetComponent<PeepAI>();
+        leaderAi.blackboard.UpdateBlackboard("isGroupLeader", true);
+        rbInGroup.Add(groupLeader.GetComponent<Rigidbody2D>());
+        for (int i = 1; i < size; i++)
+        {
+            GameObject peepInstance = Instantiate(peepTemplate, spawnPos, Quaternion.identity);
+            PeepAI peepAI = peepInstance.GetComponent<PeepAI>();
+            peepAI.blackboard.UpdateBlackboard("leader", groupLeader);
+            peepAI.blackboard.UpdateBlackboard("isGroupLeader", false);
+            aiInGroup.Add(peepAI);
+            rbInGroup.Add(peepInstance.GetComponent<Rigidbody2D>());
+        }
+        for (int j = 0; j < aiInGroup.Count; j++)
+        {
+            aiInGroup[j].blackboard.UpdateBlackboard("group", rbInGroup);
+        }
+    }
     void Start()
     {
-        for (int i = 0; i < numberInGroup; i++)
+       for(int i = 0; i < 100; i++)
         {
-            Instantiate(peep, transform);
+            int size = Random.Range(1, groupSizeLimit);
+            MakeGroup(size);
         }
     }
 

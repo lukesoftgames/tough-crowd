@@ -9,16 +9,21 @@ public class PeepAI : MonoBehaviour
     public BehaviourTree behaviourTree;
     private BehaviourNode behaviourTreeRoot;
     private Context context = Context.GetInstance();
-    private Blackboard blackboard;
+    public Blackboard blackboard;
 
-
+    public T GetValueFromBlackboard<T>(string key)
+    {
+        // Make sure blackboard is set.
+        if (blackboard == null) { return default(T); }
+        return blackboard.GetValue<T>(key);
+    }
     void Start()
     {
+        // Create a copy of the behaviour tree so we can indivudually set values
         behaviourTree = (BehaviourTree)behaviourTree.Copy();
         XNode.Node entry = ((BehaviourTree)behaviourTree.Copy()).FindEntryNode();
         behaviourTreeRoot = (BehaviourNode)entry.GetOutputPort("child").GetConnection(0).node;
         behaviourTreeRoot.Reset();
-        blackboard = new Blackboard();
     }
 
     void FixedUpdate()
