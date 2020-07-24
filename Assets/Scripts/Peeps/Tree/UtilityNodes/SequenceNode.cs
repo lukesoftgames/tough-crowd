@@ -36,12 +36,9 @@ public class SequenceNode : CompositeNode
     public override void OnReset()
     {
         currentNode = 0;
-        if (children != null)
+        for (int i = 0; i < children.Count; i++)
         {
-            foreach (BehaviourNode n in children)
-            {
-                n.Reset();
-            }
+            GetChild(i).Reset();
         }
     }
 }

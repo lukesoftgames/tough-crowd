@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum BlackboardType
+{
+    Individual,
+    Group,
+}
 
-public class Blackboard : MonoBehaviour
+public class Blackboard : ScriptableObject
 {
    public Dictionary<string, object> variables = new Dictionary<string, object>();
     

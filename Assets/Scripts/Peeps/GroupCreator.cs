@@ -7,13 +7,10 @@ public class GroupCreator : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private int groupSizeLimit = 4;
     [SerializeField] GameObject peepTemplate;
+    [SerializeField] private int numberOfGroups;
+    
     private GameObject groupLeader; 
-    int numberInGroup;
-
-    void Awake()
-    {
-        numberInGroup = Random.Range(1, groupSizeLimit);
-    }
+    
 
     void MakeGroup(int size)
     {
@@ -30,7 +27,9 @@ public class GroupCreator : MonoBehaviour
         }
 
         groupLeader = Instantiate(peepTemplate, spawnPos, Quaternion.identity);
+        Blackboard groupBlackboard = ScriptableObject.CreateInstance<Blackboard>();
         PeepAI leaderAi = groupLeader.GetComponent<PeepAI>();
+        leaderAi.groupBlackboard = groupBlackboard;
         leaderAi.blackboard.UpdateBlackboard("isGroupLeader", true);
         rbInGroup.Add(groupLeader.GetComponent<Rigidbody2D>());
         for (int i = 1; i < size; i++)
@@ -39,6 +38,7 @@ public class GroupCreator : MonoBehaviour
             PeepAI peepAI = peepInstance.GetComponent<PeepAI>();
             peepAI.blackboard.UpdateBlackboard("leader", groupLeader);
             peepAI.blackboard.UpdateBlackboard("isGroupLeader", false);
+            peepAI.groupBlackboard = groupBlackboard;
             aiInGroup.Add(peepAI);
             rbInGroup.Add(peepInstance.GetComponent<Rigidbody2D>());
         }
@@ -49,7 +49,7 @@ public class GroupCreator : MonoBehaviour
     }
     void Start()
     {
-       for(int i = 0; i < 100; i++)
+       for(int i = 0; i < numberOfGroups; i++)
         {
             int size = Random.Range(1, groupSizeLimit);
             MakeGroup(size);

@@ -15,13 +15,20 @@ public class BoardTrainNode : MoveToLocationNode
             Vector2 currentPos = peep.GetComponent<Rigidbody2D>().position;
             foreach(Vector2 boardingPoint in context.trainBoardingPoints)
             {
-                if ((boardingPoint - currentPos).magnitude < minDistance)
+                if ((boardingPoint - currentPos).sqrMagnitude < minDistance)
                 {
                     destination = boardingPoint;
+                    minDistance = (boardingPoint - currentPos).sqrMagnitude;
                 }
             }
             CalculatePath(peep);
         }
-        return PathFind(context, peep);
+        
+        NodeStatus n = PathFind(context, peep);
+        if (n == NodeStatus.SUCCESS)
+        {
+            peep.GetComponent<PeepAI>().groupBlackboard.UpdateBlackboard("leaderBoardedTrain", true);
+        }
+        return n;
     }
 }

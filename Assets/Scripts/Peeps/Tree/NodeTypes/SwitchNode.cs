@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwitchNode : BehaviourNode
 {
 
+    [SerializeField] private BlackboardType blackboardType;
     [SerializeField] private string key;
     private Blackboard bb;
     [Output] public BehaviourNode runOnTrue;
@@ -20,7 +21,10 @@ public class SwitchNode : BehaviourNode
     {
         if (startFlag)
         {
-            bb = peep.GetComponent<PeepAI>().blackboard;
+            if (blackboardType == BlackboardType.Individual)
+                bb = peep.GetComponent<PeepAI>().blackboard;
+            if (blackboardType == BlackboardType.Group)
+                bb = peep.GetComponent<PeepAI>().groupBlackboard;
         }
         if (bb.GetValue<bool>(key))
         {
