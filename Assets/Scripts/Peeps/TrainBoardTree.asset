@@ -58,8 +58,10 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   parent: {fileID: 0}
-  changeWaypointTolerance: 0.2
-  speed: 2
+  changeWaypointTolerance: 1
+  speed: 1
+  numberOfCollisionRays: 16
+  awarenessRadius: 2
 --- !u!114 &-968059444360577530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +120,6 @@ MonoBehaviour:
   parent: {fileID: 0}
   waitNode: {fileID: 0}
   conditionNode: {fileID: -5307353612913873555}
-  conditionKey: 
 --- !u!114 &-690563163532082910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +214,6 @@ MonoBehaviour:
   - {fileID: -690563163532082910}
   - {fileID: -430380846763366447}
   - {fileID: 5617534319386614554}
-  - {fileID: -8741936566402556774}
 --- !u!114 &667880978130695640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: Entry
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -632, y: -120}
+  position: {x: -632, y: -152}
   ports:
     keys:
     - child
@@ -385,6 +385,8 @@ MonoBehaviour:
   parent: {fileID: 0}
   changeWaypointTolerance: 0.5
   speed: 1
-  minSearchRadius: 2
-  maxSearchRadius: 5
+  numberOfCollisionRays: 16
+  awarenessRadius: 2
+  minSearchRadius: 5
+  maxSearchRadius: 10
   attemptsToFindATarget: 10

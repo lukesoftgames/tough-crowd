@@ -5,6 +5,8 @@ using UnityEngine;
 public class TrainController : MonoBehaviour
 {
     public bool moving = false;
+    public GameObject platformBarrier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class TrainController : MonoBehaviour
             .setDelay(10f)
             .setOnComplete(() =>
             {
+                platformBarrier.SetActive(false);
                 AstarPath.active.Scan();
                 context.trainArrived = true;
                 LeanTween.moveY(gameObject, -30f, 2f)
@@ -26,6 +29,7 @@ public class TrainController : MonoBehaviour
                    .setOnComplete(() =>
                    {
                        AstarPath.active.Scan();
+                       platformBarrier.SetActive(true);
                        context.trainArrived = false;
                    });
             });

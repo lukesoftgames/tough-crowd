@@ -2,32 +2,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Blackboard : MonoBehaviour
+public enum BlackboardType
 {
-    private Dictionary<string, object> blackboardValues;
+    Individual,
+    Group,
+}
 
-    public Blackboard()
-    {
-        blackboardValues = new Dictionary<string, object>();
-    }
+public class Blackboard : ScriptableObject
+{
+   public Dictionary<string, object> variables = new Dictionary<string, object>();
+    
 
     public void UpdateBlackboard(string key, object value)
     {
-        if (blackboardValues.ContainsKey(key))
+        if (variables.ContainsKey(key))
         {
-            blackboardValues[key] = value;
+            variables[key] = value;
         } else
         {
-            blackboardValues.Add(key, value);
+            variables.Add(key, value);
+
         }
+
+
     }
-    public void Clear()
+    public T GetValue<T>(string key)
     {
-        foreach(string key in blackboardValues.Keys)
+        // Check if value is present in the runner.
+        object value;
+        T result = default(T);
+        if (variables.TryGetValue(key, out value))
         {
-            blackboardValues.Remove(key);
+            // Make sure the type is valid.
+            if (value.GetType().IsAssignableFrom(typeof(T)))
+            {
+               
+                result = (T)value;
+            }
+            else
+            {
+                Debug.LogError(key + " is not assignable to " + typeof(T));
+                result = default(T);
+            }
         }
+        // Check if value is the correct type.
+        return result;
     }
+   
    
 }

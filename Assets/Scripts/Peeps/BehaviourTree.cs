@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BehaviourTree : XNode.NodeGraph
 {
+
     public XNode.Node FindEntryNode()
     {
         foreach (XNode.Node n in nodes)
