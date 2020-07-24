@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEditor.Experimental.GraphView;
+
 public class BoardTrainNode : MoveToLocationNode
 {
 
     public override NodeStatus OnBehave(Context context, GameObject peep)
     {
-        if (startFlag)
+        if (startFlag && peep.GetComponent<PeepAI>().isLeader)
         {
-            Debug.Log("Set Path");
             // choose a boarding point
             float minDistance = Mathf.Infinity;
             Vector2 currentPos = peep.GetComponent<Rigidbody2D>().position;
@@ -17,17 +18,19 @@ public class BoardTrainNode : MoveToLocationNode
             {
                 if ((boardingPoint - currentPos).sqrMagnitude < minDistance)
                 {
-                    destination = boardingPoint;
+                    SetDestination(boardingPoint, peep.GetComponent<PeepAI>());
                     minDistance = (boardingPoint - currentPos).sqrMagnitude;
                 }
             }
             CalculatePath(peep);
         }
-        
-        NodeStatus n = PathFind(context, peep);
+
+        if (reachedEndOfPath == true)
+            return NodeStatus.SUCCESS;
+        NodeStatus n = Move(context, peep);
         if (n == NodeStatus.SUCCESS)
         {
-            peep.GetComponent<PeepAI>().groupBlackboard.UpdateBlackboard("leaderBoardedTrain", true);
+            Debug.Log("boarded train");
         }
         return n;
     }

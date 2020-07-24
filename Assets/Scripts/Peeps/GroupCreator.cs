@@ -29,23 +29,26 @@ public class GroupCreator : MonoBehaviour
         groupLeader = Instantiate(peepTemplate, spawnPos, Quaternion.identity);
         Blackboard groupBlackboard = ScriptableObject.CreateInstance<Blackboard>();
         PeepAI leaderAi = groupLeader.GetComponent<PeepAI>();
+
+        groupBlackboard.UpdateBlackboard("leader", groupLeader);
+
         leaderAi.groupBlackboard = groupBlackboard;
-        leaderAi.blackboard.UpdateBlackboard("isGroupLeader", true);
+        leaderAi.isLeader = true;
         rbInGroup.Add(groupLeader.GetComponent<Rigidbody2D>());
         for (int i = 1; i < size; i++)
         {
             GameObject peepInstance = Instantiate(peepTemplate, spawnPos, Quaternion.identity);
             PeepAI peepAI = peepInstance.GetComponent<PeepAI>();
-            peepAI.blackboard.UpdateBlackboard("leader", groupLeader);
-            peepAI.blackboard.UpdateBlackboard("isGroupLeader", false);
+            peepAI.isLeader = false;
             peepAI.groupBlackboard = groupBlackboard;
+
             aiInGroup.Add(peepAI);
             rbInGroup.Add(peepInstance.GetComponent<Rigidbody2D>());
         }
-        for (int j = 0; j < aiInGroup.Count; j++)
-        {
-            aiInGroup[j].blackboard.UpdateBlackboard("group", rbInGroup);
-        }
+
+
+        leaderAi.groupBlackboard.UpdateBlackboard("group", rbInGroup);
+        
     }
     void Start()
     {

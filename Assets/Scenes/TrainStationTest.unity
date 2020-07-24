@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &525396507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97cde255d2b0ac449d1fbbc36806719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groupSizeLimit: 5
+  groupSizeLimit: 1
   peepTemplate: {fileID: 8251310746134929867, guid: e0f0bb34e735cbb4eb0db235f3421ff2,
     type: 3}
   numberOfGroups: 100

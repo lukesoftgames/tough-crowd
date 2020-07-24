@@ -12,7 +12,8 @@ public class PeepAI : MonoBehaviour
     private Context context = Context.GetInstance();
     public Blackboard blackboard;
     public Blackboard groupBlackboard;
-
+    public bool isLeader;
+    private bool done;
     public T GetValueFromBlackboard<T>(string key)
     {
         // Make sure blackboard is set.
@@ -40,6 +41,11 @@ public class PeepAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        NodeStatus s = behaviourTreeRoot.Behave(context, gameObject);
+        if (!done)
+        {
+            NodeStatus s = behaviourTreeRoot.Behave(context, gameObject);
+ 
+        }
+       
     }
 }

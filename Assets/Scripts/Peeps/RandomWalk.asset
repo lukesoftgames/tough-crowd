@@ -1,333 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8888437518230757393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05da946c3e6bea245b2524fb9b8c49a1, type: 3}
-  m_Name: Sequence
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 728, y: -168}
-  ports:
-    keys:
-    - children
-    - parent
-    - children 0
-    - children 1
-    values:
-    - _fieldName: children
-      _node: {fileID: -8888437518230757393}
-      _typeQualifiedName: System.Collections.Generic.List`1[[BehaviourNode, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
-        Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: -8888437518230757393}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: runOnTrue
-        node: {fileID: -2518346377357667819}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: children 0
-      _node: {fileID: -8888437518230757393}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 2011311950280535074}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: children 1
-      _node: {fileID: -8888437518230757393}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: -7336498884987546430}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  parent: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &-8136789249354404782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f4e7f8135e8a24fa4fb39aba4ca679, type: 3}
-  m_Name: Wait For Train
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 377.9435, y: -477.71823}
-  ports:
-    keys:
-    - waitNode
-    - conditionNode
-    - parent
-    values:
-    - _fieldName: waitNode
-      _node: {fileID: -8136789249354404782}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 2761202525414149259}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: conditionNode
-      _node: {fileID: -8136789249354404782}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 8439893013530951489}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: -8136789249354404782}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: runOnTrue
-        node: {fileID: 5248156952856235113}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  waitNode: {fileID: 0}
-  conditionNode: {fileID: 0}
---- !u!114 &-7336498884987546430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03357a28babb8e54d87aa1f7b674268b, type: 3}
-  m_Name: Parent To
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 984, y: -104}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: -7336498884987546430}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: children 1
-        node: {fileID: -8888437518230757393}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  parentName: TrainBody
---- !u!114 &-6262580367443875711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ea74b4e630c2546a81f97c0c576650, type: 3}
-  m_Name: Walk To Random Position
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 808, y: -776}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: -6262580367443875711}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: child
-        node: {fileID: 2761202525414149259}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  changeWaypointTolerance: 0.5
-  speed: 1
-  minSearchRadius: 2
-  maxSearchRadius: 5
-  attemptsToFindATarget: 10
---- !u!114 &-5067428557082757356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221793062cbf82843989b390d129e852, type: 3}
-  m_Name: Entry
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -520, y: -184}
-  ports:
-    keys:
-    - child
-    values:
-    - _fieldName: child
-      _node: {fileID: -5067428557082757356}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: -1973543420928035088}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  child: {fileID: -1973543420928035088}
---- !u!114 &-2518346377357667819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36fd7805e66d9e4881ca85cc0721ff1, type: 3}
-  m_Name: Switch
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 376, y: -152}
-  ports:
-    keys:
-    - runOnTrue
-    - runOnFalse
-    - parent
-    values:
-    - _fieldName: runOnTrue
-      _node: {fileID: -2518346377357667819}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: -8888437518230757393}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: runOnFalse
-      _node: {fileID: -2518346377357667819}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 4014317839855921407}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: -2518346377357667819}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: runOnFalse
-        node: {fileID: 5248156952856235113}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  blackboardType: 1
-  key: leaderBoardedTrain
-  runOnTrue: {fileID: 0}
-  runOnFalse: {fileID: 0}
---- !u!114 &-1973543420928035088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b4daac34360e14d9b431d1318a5e62, type: 3}
-  m_Name: Repeater
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -216, y: -184}
-  ports:
-    keys:
-    - child
-    - parent
-    values:
-    - _fieldName: child
-      _node: {fileID: -1973543420928035088}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 5248156952856235113}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: -1973543420928035088}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: child
-        node: {fileID: -5067428557082757356}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,22 +13,10 @@ MonoBehaviour:
   m_Name: RandomWalk
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -5067428557082757356}
-  - {fileID: -1973543420928035088}
-  - {fileID: 5248156952856235113}
-  - {fileID: 3684266311520605693}
-  - {fileID: -6262580367443875711}
-  - {fileID: -2518346377357667819}
-  - {fileID: -8136789249354404782}
-  - {fileID: 7475844832449439807}
-  - {fileID: 8439893013530951489}
-  - {fileID: 2327193080777433228}
-  - {fileID: 4014317839855921407}
-  - {fileID: 2761202525414149259}
-  - {fileID: -8888437518230757393}
-  - {fileID: 2011311950280535074}
-  - {fileID: -7336498884987546430}
---- !u!114 &2011311950280535074
+  - {fileID: 7725006965879628087}
+  - {fileID: 4820145344303880434}
+  - {fileID: 2206327364823187086}
+--- !u!114 &2206327364823187086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,21 +25,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d8e4b5f8803f04791207b03ea1fa0b, type: 3}
-  m_Name: Board Train
+  m_Script: {fileID: 11500000, guid: 63ea74b4e630c2546a81f97c0c576650, type: 3}
+  m_Name: Walk To Random Position
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 984, y: -216}
+  position: {x: 295.13837, y: -45.115383}
   ports:
     keys:
     - parent
     values:
     - _fieldName: parent
-      _node: {fileID: 2011311950280535074}
+      _node: {fileID: 2206327364823187086}
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: children 0
-        node: {fileID: -8888437518230757393}
+      - fieldName: child
+        node: {fileID: 4820145344303880434}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -388,114 +48,12 @@ MonoBehaviour:
   parent: {fileID: 0}
   changeWaypointTolerance: 0.5
   speed: 1
---- !u!114 &2327193080777433228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03357a28babb8e54d87aa1f7b674268b, type: 3}
-  m_Name: Parent To
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 968, y: -456}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: 2327193080777433228}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: children 1
-        node: {fileID: 8439893013530951489}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  parentName: TrainBody
---- !u!114 &2761202525414149259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b4daac34360e14d9b431d1318a5e62, type: 3}
-  m_Name: Repeater
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 520, y: -712}
-  ports:
-    keys:
-    - child
-    - parent
-    values:
-    - _fieldName: child
-      _node: {fileID: 2761202525414149259}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: -6262580367443875711}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: 2761202525414149259}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: waitNode
-        node: {fileID: -8136789249354404782}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  child: {fileID: 0}
---- !u!114 &3684266311520605693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e7e35882176b734ab50130366118d59, type: 3}
-  m_Name: Follow Group Leader
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 1064, y: 24}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: 3684266311520605693}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: child
-        node: {fileID: 4014317839855921407}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
   numberOfCollisionRays: 16
-  awarenessRadius: 2
-  speed: 1
---- !u!114 &4014317839855921407
+  awarenessRadius: 1
+  minSearchRadius: 2
+  maxSearchRadius: 5
+  attemptsToFindATarget: 10
+--- !u!114 &4820145344303880434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,29 +66,29 @@ MonoBehaviour:
   m_Name: Repeater
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 728, y: 8}
+  position: {x: -52.12304, y: -38.684616}
   ports:
     keys:
     - child
     - parent
     values:
     - _fieldName: child
-      _node: {fileID: 4014317839855921407}
+      _node: {fileID: 4820145344303880434}
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: parent
-        node: {fileID: 3684266311520605693}
+        node: {fileID: 2206327364823187086}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: parent
-      _node: {fileID: 4014317839855921407}
+      _node: {fileID: 4820145344303880434}
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: runOnFalse
-        node: {fileID: -2518346377357667819}
+      - fieldName: child
+        node: {fileID: 7725006965879628087}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -538,7 +96,7 @@ MonoBehaviour:
       _dynamic: 0
   parent: {fileID: 0}
   child: {fileID: 0}
---- !u!114 &5248156952856235113
+--- !u!114 &7725006965879628087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,156 +105,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36fd7805e66d9e4881ca85cc0721ff1, type: 3}
-  m_Name: Switch
+  m_Script: {fileID: 11500000, guid: 221793062cbf82843989b390d129e852, type: 3}
+  m_Name: Entry
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 56, y: -264}
+  position: {x: -328, y: -56}
   ports:
     keys:
-    - runOnTrue
-    - runOnFalse
-    - parent
+    - child
     values:
-    - _fieldName: runOnTrue
-      _node: {fileID: 5248156952856235113}
+    - _fieldName: child
+      _node: {fileID: 7725006965879628087}
       _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
       - fieldName: parent
-        node: {fileID: -8136789249354404782}
+        node: {fileID: 4820145344303880434}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: runOnFalse
-      _node: {fileID: 5248156952856235113}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: -2518346377357667819}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: 5248156952856235113}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: child
-        node: {fileID: -1973543420928035088}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  blackboardType: 0
-  key: isGroupLeader
-  runOnTrue: {fileID: 0}
-  runOnFalse: {fileID: 0}
---- !u!114 &7475844832449439807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d8e4b5f8803f04791207b03ea1fa0b, type: 3}
-  m_Name: Board Train
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 1080, y: -600}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: 7475844832449439807}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: children 0
-        node: {fileID: 8439893013530951489}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  parent: {fileID: 0}
-  changeWaypointTolerance: 0.5
-  speed: 1
---- !u!114 &8439893013530951489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05da946c3e6bea245b2524fb9b8c49a1, type: 3}
-  m_Name: Sequence
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 664, y: -536}
-  ports:
-    keys:
-    - children
-    - parent
-    - children 0
-    - children 1
-    values:
-    - _fieldName: children
-      _node: {fileID: 8439893013530951489}
-      _typeQualifiedName: System.Collections.Generic.List`1[[BehaviourNode, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
-        Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: 8439893013530951489}
-      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: conditionNode
-        node: {fileID: -8136789249354404782}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: children 0
-      _node: {fileID: 8439893013530951489}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 7475844832449439807}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: children 1
-      _node: {fileID: 8439893013530951489}
-      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 2327193080777433228}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  parent: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
+  child: {fileID: 4820145344303880434}

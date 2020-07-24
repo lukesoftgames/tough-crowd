@@ -263,9 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b12b30e9ac93fd409e5e8e00bf0ed90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 569037de1e1fe094dbfc0ee47ae1f8d2, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 8b7019d7b43e0c24caaab29cbd83cb95, type: 2}
   blackboard: {fileID: 0}
   groupBlackboard: {fileID: 0}
+  isLeader: 0
 --- !u!50 &8251310746134929868
 Rigidbody2D:
   serializedVersion: 4
