@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21824b4d2bf4f5b4a9b0483046c1d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 1
   playerRole: 1
 --- !u!61 &819518981
 BoxCollider2D:
@@ -608,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21824b4d2bf4f5b4a9b0483046c1d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
   playerRole: 0
 --- !u!61 &1583113112
 BoxCollider2D:
@@ -621,7 +619,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:

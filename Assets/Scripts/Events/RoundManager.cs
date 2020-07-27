@@ -44,7 +44,6 @@ public class RoundManager : MonoBehaviour
         GameEvents.current.onTimerEnd += EndRound;
         GameEvents.current.onPlayerKilled += EndRound;
         GameEvents.current.onInstructionComplete += CheckInstructions;
-        GameEvents.current.onRoundEnd += SwapRoles;
     }
 
     private void SwapRoles() {
@@ -70,13 +69,12 @@ public class RoundManager : MonoBehaviour
     }
 
     private void EndRound(int id) {
-        Debug.Log("Player " + id + " won");
+        // Debug.Log("Player " + id + " won");
         GameEvents.current.RoundEnd();
         playerScoreDict[id] += 1;
         curRoundNum++;
         SceneManager.LoadScene("RoundSceneTest");
         SwapRoles();
-        GameEvents.current.ChangeRoles(playerRolesDict);
         completeInstructions = 0;
     }
 
