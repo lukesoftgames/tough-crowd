@@ -8,8 +8,8 @@ public class RoundManager : MonoBehaviour
 {
     public static RoundManager current { get; private set; }
     private int curRoundNum;
+    private int p0score;
     private int p1score;
-    private int p2score;
     private int p1role;
     private int p2role;
     private int completeInstructions;
@@ -54,33 +54,32 @@ public class RoundManager : MonoBehaviour
             playerRolesDict[0] = 0;
             playerRolesDict[1] = 1;
         }
-        GameEvents.current.ChangeRoles(playerRolesDict);
     }
 
     public int getCurHunted() {
-        return curHunted;
+        return playerRolesDict[1];
     }
 
     private void CheckInstructions() {
         completeInstructions += 1;
         if (completeInstructions >= instructionsToWin) {
-            EndRound(curHunted);
+            EndRound(getCurHunted());
         }
     }
 
     private void EndRound(int id) {
-        // Debug.Log("Player " + id + " won");
+        Debug.Log("Player " + id + " won");
         GameEvents.current.RoundEnd();
         playerScoreDict[id] += 1;
         curRoundNum++;
-        SceneManager.LoadScene("RoundSceneTest");
         SwapRoles();
         completeInstructions = 0;
+        GameEvents.current.ResetLevel(playerRolesDict);
     }
 
     private void Update() {
-        p1score = playerScoreDict[0];
-        p2score = playerScoreDict[1];
+        p0score = playerScoreDict[0];
+        p1score = playerScoreDict[1];
 
         p1role = playerRolesDict[0];
         p2role = playerRolesDict[1];

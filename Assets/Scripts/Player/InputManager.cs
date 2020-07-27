@@ -36,10 +36,10 @@ public class InputManager : MonoBehaviour
     }
 
     private void Start() {
-        GameEvents.current.onChangeRoles += SwapRoles;
+        GameEvents.current.onResetLevel += SwapRoles;
     }
 
-    private void SwapRoles(Dictionary<int,int> roles) {
+    private void SwapRoles(Dictionary<int, int> roles) {
         swapedRoles = !swapedRoles;
     }
 

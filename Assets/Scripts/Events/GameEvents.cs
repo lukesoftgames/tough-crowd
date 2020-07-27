@@ -50,4 +50,11 @@ public class GameEvents : MonoBehaviour {
             onPlayerKilled(playerID);
         }
     }
+
+    public event Action<Dictionary<int, int>> onResetLevel;
+    public void ResetLevel(Dictionary<int, int> roles) {
+        if (onResetLevel != null) {
+            onResetLevel(roles);
+        }
+    }
 }
