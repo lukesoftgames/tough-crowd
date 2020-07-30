@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1323394440919119754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1e3361f54493a47a3142e864e67775, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 568, y: 88}
+  ports:
+    keys:
+    - parent
+    values:
+    - _fieldName: parent
+      _node: {fileID: -1323394440919119754}
+      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: children 1
+        node: {fileID: 5911248162568688948}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  parent: {fileID: 0}
+  minTime: 1
+  maxTime: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,6 +48,8 @@ MonoBehaviour:
   - {fileID: 7725006965879628087}
   - {fileID: 4820145344303880434}
   - {fileID: 2206327364823187086}
+  - {fileID: -1323394440919119754}
+  - {fileID: 5911248162568688948}
 --- !u!114 &2206327364823187086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +63,7 @@ MonoBehaviour:
   m_Name: Walk To Random Position
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 295.13837, y: -45.115383}
+  position: {x: 536, y: -168}
   ports:
     keys:
     - parent
@@ -38,8 +72,8 @@ MonoBehaviour:
       _node: {fileID: 2206327364823187086}
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: child
-        node: {fileID: 4820145344303880434}
+      - fieldName: children 0
+        node: {fileID: 5911248162568688948}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -77,7 +111,7 @@ MonoBehaviour:
       _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: parent
-        node: {fileID: 2206327364823187086}
+        node: {fileID: 5911248162568688948}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -96,6 +130,79 @@ MonoBehaviour:
       _dynamic: 0
   parent: {fileID: 0}
   child: {fileID: 0}
+--- !u!114 &5911248162568688948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd0e227674ffe64bac149b13e80c584, type: 3}
+  m_Name: Biased Selector
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 200, y: -40}
+  ports:
+    keys:
+    - children
+    - parent
+    - children 0
+    - children 1
+    values:
+    - _fieldName: children
+      _node: {fileID: 5911248162568688948}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BehaviourNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: parent
+      _node: {fileID: 5911248162568688948}
+      _typeQualifiedName: XNode.Node, XNode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: child
+        node: {fileID: 4820145344303880434}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: children 0
+      _node: {fileID: 5911248162568688948}
+      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: 2206327364823187086}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: children 1
+      _node: {fileID: 5911248162568688948}
+      _typeQualifiedName: BehaviourNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: -1323394440919119754}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  parent: {fileID: 0}
+  children:
+  - {fileID: 0}
+  - {fileID: 0}
+  probability:
+  - 0.7
+  - 0.3
 --- !u!114 &7725006965879628087
 MonoBehaviour:
   m_ObjectHideFlags: 0
