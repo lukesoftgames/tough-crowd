@@ -83,8 +83,9 @@ public abstract class MoveToLocationNode : BehaviourNode
       
          
         
-    } 
-    
+    }
+
+
     public NodeStatus PathFind(Context context, GameObject peep)
     {
         // if we have just started, calculate a palth
@@ -104,6 +105,7 @@ public abstract class MoveToLocationNode : BehaviourNode
         reachedEndOfPath = false;
         // find out which way to go
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
         // calculate the force to reach the location
         direction += GetSeperationForce();
         Vector2 force = direction * speed * Time.deltaTime;
