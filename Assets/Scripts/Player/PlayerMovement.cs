@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        //getInput();
         move();
     }
 
@@ -21,17 +20,9 @@ public class PlayerMovement : MonoBehaviour {
         inputVector = direction;
     }
 
-    //private void getInput() {
-    //    movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-    //    speed = Input.GetKey(KeyCode.LeftShift) ? 2.0f : 1.0f;
-    //    return;
-    //}
-
     private void move() {
         Vector3 translation = new Vector3(inputVector.x, inputVector.y, 0.0f) * speed * Time.deltaTime * TimeManager.getTimeFlow();
-        
         transform.position += translation;
-
         return;
     }
 }

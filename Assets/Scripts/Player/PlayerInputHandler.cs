@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour {
     private PlayerMovement playerMovement;
     private PlayerInteract playerInteract;
     private Controls controls = null;
+
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
@@ -21,9 +22,11 @@ public class PlayerInputHandler : MonoBehaviour {
             controls.Player.P2Interact.performed += _ => OnInteract();
         }
     }
+
     private void OnEnable() {
         controls.Player.Enable();
     }
+
     private void getInput() {
         if (playerIndex == 0) {
             inputDirection = controls.Player.P1Movement.ReadValue<Vector2>();
@@ -37,8 +40,6 @@ public class PlayerInputHandler : MonoBehaviour {
     public void OnInteract() {
         playerInteract.setTryInteract(true);
     }
-
-
 
     private void Update() {
         getInput();
