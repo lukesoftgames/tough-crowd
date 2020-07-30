@@ -4,28 +4,28 @@ using System.ComponentModel.Design;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    [SerializeField] private int playerIndex = 0;
-    [SerializeField] private int playerRole = 0;
+    [SerializeField] private PlayerIndex playerIndex = 0;
+    [SerializeField] private PlayerRole playerRole = 0;
 
     private void Start() {
         // Debug.Log("start");
         GameEvents.current.onResetLevel += SwapRoles;
     }
 
-    private void SwapRoles(Dictionary<int, int> roles) {
+    private void SwapRoles(Dictionary<PlayerRole, PlayerIndex> roles) {
         playerIndex = roles[playerRole];
         resetPosition();
     }
 
-    public int getPlayerIndex() {
+    public PlayerIndex getPlayerIndex() {
         return playerIndex;
     }
 
-    public int getPlayerRole() {
+    public PlayerRole getPlayerRole() {
         return playerRole;
     }
 
-    public void setPlayerRole(int newRole) {
+    public void setPlayerRole(PlayerRole newRole) {
         playerRole = newRole;
     }
 

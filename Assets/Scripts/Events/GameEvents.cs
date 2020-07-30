@@ -15,8 +15,8 @@ public class GameEvents : MonoBehaviour {
         }
     }
 
-    public event Action<int> onTimerEnd;
-    public void TimerEnd(int playerID) {
+    public event Action<PlayerIndex> onTimerEnd;
+    public void TimerEnd(PlayerIndex playerID) {
         if (onTimerEnd != null) {
             onTimerEnd(playerID);
         }
@@ -29,8 +29,8 @@ public class GameEvents : MonoBehaviour {
         }
     }
 
-    public event Action<Dictionary<int,int>> onChangeRoles;
-    public void ChangeRoles(Dictionary<int,int> roles) {
+    public event Action<Dictionary<PlayerRole,PlayerIndex>> onChangeRoles;
+    public void ChangeRoles(Dictionary<PlayerRole, PlayerIndex> roles) {
         if (onChangeRoles != null) {
             onChangeRoles(roles);
         }
@@ -44,15 +44,15 @@ public class GameEvents : MonoBehaviour {
     }
 
 
-    public event Action<int> onPlayerKilled;
-    public void PlayerKilled(int playerID) {
+    public event Action<PlayerIndex> onPlayerKilled;
+    public void PlayerKilled(PlayerIndex playerID) {
         if (onPlayerKilled != null) {
             onPlayerKilled(playerID);
         }
     }
 
-    public event Action<Dictionary<int, int>> onResetLevel;
-    public void ResetLevel(Dictionary<int, int> roles) {
+    public event Action<Dictionary<PlayerRole, PlayerIndex>> onResetLevel;
+    public void ResetLevel(Dictionary<PlayerRole, PlayerIndex> roles) {
         if (onResetLevel != null) {
             onResetLevel(roles);
         }

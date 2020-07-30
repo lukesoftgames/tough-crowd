@@ -8,16 +8,16 @@ public class RoundManager : MonoBehaviour
 {
     public static RoundManager current { get; private set; }
     private int curRoundNum;
-    private int p0score;
     private int p1score;
-    private int p1role;
-    private int p2role;
+    private int p2score;
+    private PlayerRole p1role;
+    private PlayerRole p2role;
     private int completeInstructions;
-    private int curHunted;
+    private PlayerIndex curHunted;
     [SerializeField] private int instructionsToWin = 3;
 
-    private Dictionary<int, int> playerRolesDict = new Dictionary<int, int>();
-    private Dictionary<int, int> playerScoreDict= new Dictionary<int, int>();
+    private Dictionary<PlayerRole, PlayerIndex> playerRolesDict = new Dictionary<PlayerRole, PlayerIndex>();
+    private Dictionary<PlayerIndex, int> playerScoreDict= new Dictionary<PlayerIndex, int>();
 
     private void Awake() {
         if (current == null) {
@@ -32,14 +32,14 @@ public class RoundManager : MonoBehaviour
 
     private void Start() {
         curRoundNum = 0;
-        curHunted = 0;
+        curHunted = PlayerIndex.Player1;
         completeInstructions = 0;
 
-        playerScoreDict.Add(0, 0);
-        playerScoreDict.Add(1, 0);
+        playerScoreDict.Add(PlayerIndex.Player1, 0);
+        playerScoreDict.Add(PlayerIndex.Player2, 0);
 
-        playerRolesDict.Add(0, 1);
-        playerRolesDict.Add(1, 0);
+        playerRolesDict.Add(PlayerRole.Hunter, PlayerIndex.Player2);
+        playerRolesDict.Add(PlayerRole.Hunted, PlayerIndex.Player1);
 
         GameEvents.current.onTimerEnd += EndRound;
         GameEvents.current.onPlayerKilled += EndRound;
@@ -47,17 +47,17 @@ public class RoundManager : MonoBehaviour
     }
 
     private void SwapRoles() {
-        if (playerRolesDict[0] == 0) {
-            playerRolesDict[0] = 1;
-            playerRolesDict[1] = 0;
+        if (playerRolesDict[PlayerRole.Hunter] == PlayerIndex.Player1) {
+            playerRolesDict[PlayerRole.Hunter] = PlayerIndex.Player2;
+            playerRolesDict[PlayerRole.Hunted] = PlayerIndex.Player1;
         } else {
-            playerRolesDict[0] = 0;
-            playerRolesDict[1] = 1;
+            playerRolesDict[PlayerRole.Hunter] = PlayerIndex.Player1;
+            playerRolesDict[PlayerRole.Hunted] = PlayerIndex.Player2;
         }
     }
 
-    public int getCurHunted() {
-        return playerRolesDict[1];
+    public PlayerIndex getCurHunted() {
+        return playerRolesDict[PlayerRole.Hunted];
     }
 
     private void CheckInstructions() {
@@ -67,7 +67,7 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    private void EndRound(int id) {
+    private void EndRound(PlayerIndex id) {
         Debug.Log("Player " + id + " won");
         GameEvents.current.RoundEnd();
         playerScoreDict[id] += 1;
@@ -78,12 +78,8 @@ public class RoundManager : MonoBehaviour
     }
 
     private void Update() {
-        p0score = playerScoreDict[0];
-        p1score = playerScoreDict[1];
-
-        p1role = playerRolesDict[0];
-        p2role = playerRolesDict[1];
-
+        p1score = playerScoreDict[PlayerIndex.Player1];
+        p2score = playerScoreDict[PlayerIndex.Player1];
     }
 
 
