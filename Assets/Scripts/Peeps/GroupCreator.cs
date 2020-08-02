@@ -8,7 +8,10 @@ public class GroupCreator : MonoBehaviour
     [SerializeField] private int groupSizeLimit = 4;
     [SerializeField] GameObject peepTemplate;
     [SerializeField] private int numberOfGroups;
-    
+
+    [SerializeField] private Vector2 spawnRangeTopLeft;
+    [SerializeField] private Vector2 spawnRangeBottomRight;
+
     private GameObject groupLeader; 
     
 
@@ -16,13 +19,12 @@ public class GroupCreator : MonoBehaviour
     {
         List<PeepAI> aiInGroup = new List<PeepAI>();
         List<Rigidbody2D> rbInGroup = new List<Rigidbody2D>();
-        Vector2 spawnPos = new Vector2(Random.Range(0f, 18f), Random.Range(14f, -14f));
+        Vector2 spawnPos = new Vector2(Random.Range(spawnRangeTopLeft.x, spawnRangeBottomRight.x), Random.Range(spawnRangeTopLeft.y, spawnRangeBottomRight.y));
         // Check if spawn is clear
 
         Collider2D collider = Physics2D.OverlapCircle(spawnPos, 0f);
         if (collider != null)
         {
-            // The spawn location is inside a collider
             return;
         }
 
