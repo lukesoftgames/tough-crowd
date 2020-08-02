@@ -17,7 +17,7 @@ public class TestingPunch : MonoBehaviour {
 	void Update () 
     {        
         LeanTween.dtManual = Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             //LeanTween.scale(this.gameObject, Vector3.one*3f, 1.0f).setEase(LeanTweenType.easeSpring).setUseManualTime(true);            
             //print("scale punch time independent!");
@@ -138,7 +138,7 @@ public class TestingPunch : MonoBehaviour {
 
             );
             #endif
-        }
+        }*/
 	}
 
     static void tweenStatically( GameObject gameObject ){

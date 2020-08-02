@@ -24,8 +24,8 @@ public class PlayerInteract : MonoBehaviour {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, interactDistance, Vector2.zero);
 
         foreach(RaycastHit2D hit in hits) {
-            if(hit.collider.gameObject.GetComponent<IInteractable>() != null) {
-                hit.collider.gameObject.GetComponent<IInteractable>().interact(gameObject);
+            if(hit.collider.gameObject.GetComponent<Interactable>() != null) {
+                hit.collider.gameObject.GetComponent<Interactable>().interact(gameObject);
 
                 break;
             }

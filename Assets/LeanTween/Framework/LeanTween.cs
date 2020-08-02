@@ -4075,11 +4075,11 @@ public class LTGUI {
     }
 
     public static Vector2 firstTouch(){
-        if(Input.touchCount>0){
+        /*if(Input.touchCount>0){
             return Input.touches[0].position;
         }else if(Input.GetMouseButton(0)){
             return Input.mousePosition;
-        }
+        }*/
 
         return new Vector2(Mathf.NegativeInfinity,Mathf.NegativeInfinity);
     }

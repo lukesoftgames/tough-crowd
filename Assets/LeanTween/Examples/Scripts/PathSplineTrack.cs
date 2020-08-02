@@ -26,7 +26,7 @@ public class PathSplineTrack : MonoBehaviour {
 	
 	void Update () {
 		// Switch tracks on keyboard input
-		float turn = Input.GetAxis("Horizontal");
+		/*float turn = Input.GetAxis("Horizontal");
 		if(Input.anyKeyDown){
 			if(turn<0f && trackIter>0){
 				trackIter--;
@@ -38,7 +38,7 @@ public class PathSplineTrack : MonoBehaviour {
 			// Move the internal local x of the car to simulate changing tracks
 			LeanTween.moveLocalX(carInternal, (trackIter-1)*6f, 0.3f).setEase(LeanTweenType.easeOutBack);
 
-		}
+		}*/
 
 		// Update avatar's position on correct track
 		track.place( car.transform, trackPosition );

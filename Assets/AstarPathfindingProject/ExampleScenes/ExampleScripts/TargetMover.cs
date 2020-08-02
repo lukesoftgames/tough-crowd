@@ -47,7 +47,7 @@ namespace Pathfinding {
 		}
 
 		public void UpdateTargetPosition () {
-			Vector3 newPosition = Vector3.zero;
+			/*Vector3 newPosition = Vector3.zero;
 			bool positionFound = false;
 
 			if (use2D) {
@@ -71,7 +71,7 @@ namespace Pathfinding {
 						if (ais[i] != null) ais[i].SearchPath();
 					}
 				}
-			}
+			}*/
 		}
 	}
 }

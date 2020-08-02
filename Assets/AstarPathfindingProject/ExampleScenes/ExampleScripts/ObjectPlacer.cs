@@ -19,17 +19,17 @@ namespace Pathfinding.Examples {
 
 		/// <summary>Update is called once per frame</summary>
 		void Update () {
-			if (Input.GetKeyDown("p")) {
+			/*if (Input.GetKeyDown("p")) {
 				PlaceObject();
 			}
 
 			if (Input.GetKeyDown("r")) {
 				StartCoroutine(RemoveObject());
-			}
+			}*/
 		}
 
 		public void PlaceObject () {
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			/*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 
 			// Figure out where the ground is
@@ -45,34 +45,34 @@ namespace Pathfinding.Examples {
 						AstarPath.active.FlushGraphUpdates();
 					}
 				}
-			}
+			}*/
 		}
 
 		public IEnumerator RemoveObject () {
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
+			//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			//RaycastHit hit;
 
 			// Check what object is under the mouse cursor
-			if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
+			//if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
 				// Ignore ground and triggers
-				if (hit.collider.isTrigger || hit.transform.gameObject.name == "Ground") yield break;
+				//if (hit.collider.isTrigger || hit.transform.gameObject.name == "Ground") yield break;
 
-				Bounds b = hit.collider.bounds;
-				Destroy(hit.collider);
-				Destroy(hit.collider.gameObject);
+				//Bounds b = hit.collider.bounds;
+				//Destroy(hit.collider);
+				//Destroy(hit.collider.gameObject);
 
 				if (issueGUOs) {
 					// In Unity, object destruction is actually delayed until the end of the Update loop.
 					// This means that we need to wait until the end of the frame (or until the next frame) before
 					// we update the graph. Otherwise the graph would still think that the objects are there.
 					yield return new WaitForEndOfFrame();
-					GraphUpdateObject guo = new GraphUpdateObject(b);
+					/*GraphUpdateObject guo = new GraphUpdateObject(b);
 					AstarPath.active.UpdateGraphs(guo);
 					if (direct) {
 						AstarPath.active.FlushGraphUpdates();
-					}
+					}*/
 				}
-			}
+			//}
 		}
 	}
 }

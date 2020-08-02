@@ -73,11 +73,11 @@ public class GeneralEventsListeners : MonoBehaviour {
 	// ****** Key and clicking detection
 
 	void OnMouseDown(){
-		if(Input.GetKey( KeyCode.J )){ // Are you also pressing the "j" key while clicking
+		/*if(Input.GetKey( KeyCode.J )){ // Are you also pressing the "j" key while clicking
 			LeanTween.dispatchEvent((int)MyEvents.JUMP);
 		}else{
 			LeanTween.dispatchEvent((int)MyEvents.CHANGE_COLOR, transform); // with every dispatched event, you can include an object (retrieve this object with the *.data var in LTEvent)
-		}
+		}*/
 	}
 }
 #endif
