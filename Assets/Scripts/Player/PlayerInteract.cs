@@ -23,11 +23,11 @@ public class PlayerInteract : MonoBehaviour{
         if(!tryInteract) return;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, interactDistance, Vector2.zero);
         foreach(RaycastHit2D hit in hits) {
-            if (hit.collider.gameObject.GetComponent<IInteractable>() != null) {
+            if (hit.collider.gameObject.GetComponent<Interactable>() != null) {
                 if (hit.collider.gameObject == this.gameObject) {
                     continue;
                 }
-                hit.collider.gameObject.GetComponent<IInteractable>().interact(gameObject);
+                hit.collider.gameObject.GetComponent<Interactable>().interact(gameObject);
 				
                 break;
             }

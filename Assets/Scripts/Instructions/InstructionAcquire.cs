@@ -14,7 +14,6 @@ public class InstructionAcquire : Instruction {
 
     public override void onComplete() {
         base.onComplete();
-        Debug.Log("Acquired " + objectName);
         Destroy(gameObject);
     }
 }

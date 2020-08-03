@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_Win_Test : MonoBehaviour, IInteractable { 
-    public void interact(GameObject interactor) {
+public class Interactable_Win_Test : Interactable { 
+    public override void interact(GameObject interactor) {
         if (interactor.GetComponent<PlayerController>().getPlayerRole() == PlayerRole.Hunted) {
             Debug.Log(interactor.name + " has interacted with " + transform.name);
             GameEvents.current.InstructionComplete();

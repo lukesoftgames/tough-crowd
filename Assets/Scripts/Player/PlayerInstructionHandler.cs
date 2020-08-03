@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PlayerInstructionHandler : MonoBehaviour {
     private const int NUMBER_OF_TASKS = 3;
-    [SerializeField] private static List<UnityEngine.UI.Text> displayInstructions;
+    public static GameObject player;
     private static List<Instruction> completing = new List<Instruction>();
     private static List<Instruction> instructionList = new List<Instruction>();
+    [SerializeField] private static List<UnityEngine.UI.Text> displayInstructions;
 
     private void Start() {
         displayInstructions = new List<UnityEngine.UI.Text>(gameObject.GetComponentsInChildren<UnityEngine.UI.Text>());
@@ -42,14 +43,14 @@ public class PlayerInstructionHandler : MonoBehaviour {
 
     public void generateInstructions() {
         //Code to find instructions from available interactables
-        var enumPot = FindObjectsOfType<MonoBehaviour>().OfType<Interactable>();
-        List<Interactable> potentials = new List<Interactable>();
+        var instructionPotentials = FindObjectsOfType<MonoBehaviour>().OfType<Instruction>();
+        List<Instruction> potentials = new List<Instruction>();
 
-        foreach(Interactable e in enumPot) potentials.Add(e);
+        foreach(Instruction i in instructionPotentials) potentials.Add(i);
 
         if(potentials.Count <= 3) {
-            foreach(Interactable pot in potentials) {
-                instructionList.Add(pot.getAssociatedInstruction());
+            foreach(Instruction pot in potentials) {
+                instructionList.Add(pot);
             }
         } else {
             Debug.Log("Random selection of tasks");

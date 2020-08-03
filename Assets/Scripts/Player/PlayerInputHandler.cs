@@ -21,6 +21,19 @@ public class PlayerInputHandler : MonoBehaviour {
         } else if(playerIndex == 1) {
             controls.Player.P2Interact.performed += _ => OnInteract();
         }
+
+        /* **********
+         * 
+         * 
+         * For testing instructions
+         * 
+         * 
+         * **********/
+        PlayerInstructionHandler.player = gameObject;
+
+
+
+
     }
 
     private void OnEnable() {
