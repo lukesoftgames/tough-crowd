@@ -11,7 +11,7 @@ public class Instruction : MonoBehaviour{
     public virtual void onStart() {
         if(PlayerInstructionHandler.instructionListMember(instructionName)) {
             PlayerInstructionHandler.addCompleting(this);
-            Debug.Log("Adding to completing");
+            Debug.Log("Adding to completing " + instructionName);
         } else {
             Debug.Log("This shouldn't happen");
         }

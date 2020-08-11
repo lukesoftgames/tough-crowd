@@ -17,7 +17,10 @@ public class PlayerInstructionHandler : MonoBehaviour {
 
     private void Update() {
         List<Instruction> copyCompleting = new List<Instruction>(completing);
-        foreach(Instruction instruction in copyCompleting) instruction.completing();
+        foreach(Instruction instruction in copyCompleting) {
+            if(instruction == null) continue;
+            instruction.completing();
+        }
     }
 
     public static void addCompleting(Instruction toAdd) {

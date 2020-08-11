@@ -1197,6 +1197,7 @@ GameObject:
   - component: {fileID: 1862678498}
   - component: {fileID: 1862678497}
   - component: {fileID: 1862678500}
+  - component: {fileID: 1862678501}
   m_Layer: 0
   m_Name: UISprite
   m_TagString: Untagged
@@ -1306,3 +1307,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ea0a5ad71ae6646b6bc75e5845f802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1862678501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862678496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd4cc530d9f187438a59f9566abe1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instructionName: 
+  objectName: Mjolnir
